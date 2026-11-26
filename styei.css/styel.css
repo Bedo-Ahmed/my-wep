@@ -1,0 +1,123 @@
+:root{
+  --plum:#540863;
+  --orchid:#92487A;
+  --rose:#E49BA6;
+  --blush:#FFD3D5;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{
+  font-family:'Cairo','Segoe UI',Tahoma,sans-serif;
+  color:var(--plum);
+  background:
+    radial-gradient(circle at 15% 10%, #fff0f1 0, transparent 45%),
+    radial-gradient(circle at 85% 90%, var(--rose) 0, transparent 50%),
+    var(--blush);
+  background-attachment:fixed;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ---------- القلوب الطايرة ---------- */
+#hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.heart{
+  position:absolute;bottom:-60px;
+  animation:floatUp linear forwards;
+  opacity:0;
+  user-select:none;
+}
+@keyframes floatUp{
+  0%{transform:translateY(0) translateX(0) rotate(-10deg);opacity:0}
+  10%{opacity:.85}
+  50%{transform:translateY(-55vh) translateX(25px) rotate(10deg)}
+  100%{transform:translateY(-115vh) translateX(-20px) rotate(-8deg);opacity:0}
+}
+
+/* ---------- صفحة الباسورد ---------- */
+.login-wrap{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:24px;position:relative;z-index:1;
+}
+.login-card{
+  width:100%;max-width:400px;text-align:center;
+  background:rgba(255,255,255,.55);
+  backdrop-filter:blur(8px);
+  border:2px solid var(--rose);
+  border-radius:36px 36px 36px 8px;
+  padding:40px 28px 34px;
+  box-shadow:0 18px 40px rgba(84,8,99,.18);
+}
+.login-card .big-heart{font-size:56px;display:block;animation:beat 1.4s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.login-card h1{font-size:30px;margin:10px 0 6px;color:var(--plum);font-weight:800}
+.login-card p{color:var(--orchid);font-size:16px;margin-bottom:22px}
+.login-card input{
+  width:100%;padding:14px 18px;border-radius:999px;
+  border:2px solid var(--rose);background:#fff;
+  font:inherit;font-size:18px;text-align:center;color:var(--plum);
+  outline:none;transition:border-color .2s, box-shadow .2s;
+}
+.login-card input:focus{border-color:var(--orchid);box-shadow:0 0 0 4px rgba(228,155,166,.4)}
+.btn{
+  margin-top:16px;width:100%;padding:14px;border:none;cursor:pointer;
+  border-radius:999px;font:inherit;font-weight:700;font-size:18px;
+  color:#fff;background:linear-gradient(135deg,var(--orchid),var(--plum));
+  box-shadow:0 8px 18px rgba(84,8,99,.3);
+  transition:transform .15s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:scale(.97)}
+.btn:focus-visible,.login-card input:focus-visible{outline:3px solid var(--plum);outline-offset:3px}
+.error{min-height:24px;margin-top:12px;color:var(--orchid);font-weight:700}
+.shake{animation:shake .4s}
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  20%,60%{transform:translateX(-10px)}
+  40%,80%{transform:translateX(10px)}
+}
+
+/* ---------- صفحة الكروت ---------- */
+.page{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:48px 20px 80px}
+.page header{text-align:center;margin-bottom:36px}
+.page header h1{font-size:clamp(30px,6vw,46px);font-weight:800;color:var(--plum)}
+.page header p{color:var(--orchid);font-size:18px;margin-top:6px}
+
+.cards{
+  display:grid;gap:26px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  margin-bottom:56px;
+}
+.card{
+  background:#fff;border:2px solid var(--rose);
+  border-radius:24px;padding:12px 12px 16px;
+  box-shadow:0 12px 26px rgba(84,8,99,.15);
+  transition:transform .25s;
+}
+.card:nth-child(odd){transform:rotate(-1.5deg)}
+.card:nth-child(even){transform:rotate(1.5deg)}
+.card:hover{transform:rotate(0) scale(1.03)}
+.card img{
+  width:100%;aspect-ratio:4/5;object-fit:cover;display:block;
+  border-radius:16px;background:var(--blush);
+}
+.card .caption{text-align:center;margin-top:12px;color:var(--orchid);font-weight:700}
+
+.letter{
+  background:rgba(255,255,255,.7);backdrop-filter:blur(6px);
+  border:2px solid var(--rose);border-radius:30px;
+  padding:34px 30px;max-width:720px;margin:0 auto 40px;
+  box-shadow:0 14px 30px rgba(84,8,99,.15);
+}
+.letter h2{color:var(--plum);font-size:26px;margin-bottom:14px}
+.letter p{font-size:19px;line-height:2;color:var(--plum)}
+.letter .sign{margin-top:16px;color:var(--orchid);font-weight:700;text-align:left}
+
+.music{
+  max-width:720px;margin:0 auto;text-align:center;
+  background:var(--plum);color:var(--blush);
+  border-radius:30px;padding:26px 24px;
+  box-shadow:0 14px 30px rgba(84,8,99,.3);
+}
+.music h3{margin-bottom:6px;font-size:22px}
+.music .song-name{color:var(--rose);margin-bottom:14px}
+.music audio{width:100%;max-width:420px}
